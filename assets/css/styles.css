@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+/* Important stuff here! Look at the bottom!!! (Line 133 to 136) */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --nav-bg: #fff;
+  --main-clr: dodgerblue;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  box-shadow: var(--nav-shadow);
+}
+
+nav .logo {
+  color: #fff;
+  text-decoration-color: var(--main-clr);
+  font-size: 22px;
+  font-family: "Playfair Display", serif;
+  font-weight: 100 0px 3px var(--main-clr);
+}
+
+nav .logo img {
+  width: 100%;
+  height: 70px;
+}
+
+nav ul {
+  --padding: 20px;
+  --font-size: 17px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size);
+  overflow-y: hidden;
+  transition: 1s cubic-bezier(0.68, -0.55, 0.27, 10.55);
+  box-shadow: var(--nav-shadow);
+}
+
+nav ul li {
+  padding: var(--padding);
+}
+
+nav ul li a {
+  color: #03000e;
+  text-decoration: none;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0%;
+  height: 1.7px;
+  border-radius: 99px;
+  background: var(--main-clr);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav .menu {
+  width: 22px;
+  height: 16px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  margin: 20px;
+}
+
+nav .menu span {
+  width: 100%;
+  height: 2px;
+  border-radius: 99px;
+  background: #03000e;
+  transition: 0.3s ease;
+  transform-origin: left;
+}
+
+nav .menu.active span {
+  background: var(--main-clr);
+}
+
+nav .menu.active span:nth-child(1) {
+  transform: rotate(40deg);
+}
+
+nav .menu span:nth-child(3) {
+  transform-origin: left;
+}
+
+nav .menu.active span:nth-child(3) {
+  transform: rotate(-40deg);
+}
+
+nav .menu.active span:nth-child(2) {
+  transform: scale(0);
+}
+
+.hero {
+  padding-top: 100px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/hero.jpg") center/cover no-repeat;
+}
+
+.hero-container {
+  border: 5px solid #fff;
+  padding: 2em;
+}
+.hero-container h1 {
+  font-size: 3em;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+.info {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 5em;
+}
+
+#grid {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.grid-image img {
+  width: 100%;
+}
+
+.info-text p {
+  font-size: 2em;
+  font-weight: 300;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.info-text h2 {
+  font-size: 3em;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 910px) {
+  nav .menu {
+    display: flex;
+  }
+  nav ul {
+    --height: 0px;
+    flex-direction: column;
+    background: var(--nav-bg);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 56px;
+    height: var(--height);
+    transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  nav ul.active {
+    --height: calc(
+      (((var(--padding) * 2) + (var(--font-size) * 1.5))) * var(--childenNumber)
+    );
+    /*   (Block Level Padding + The Font Size) * The Number of Children   */
+    transition: 1s ease;
+  }
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  nav ul li a {
+    width: 100%;
+    text-transform: capitalize;
+  }
+}/*# sourceMappingURL=styles.css.map */
